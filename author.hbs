@@ -1,0 +1,26 @@
+{
+	"blog" :
+	{
+		"url" = "{{@blog.url}}",
+		"title" = "{{@blog.title}}",
+		"description" = "{{@blog.description}}",
+		"logo" = "{{@blog.logo}}",
+		"cover" = "{{@blog.cover}}",
+		"navigation" = "{{@blog.navigation}}",
+	},
+
+	"author":
+	{
+		{{#author}}
+			"id": "{{id}}",
+			"name": "{{name}}",
+			"slug": "{{slug}}",
+			"bio": "{{bio}}",
+			"location": "{{location}}",
+			"website": "{{website}}",
+			"image": "{{image}}",
+			"cover": "{{cover}}",
+			"url": "{{url}}"
+		{{/author}}
+	}
+}
