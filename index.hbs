@@ -6,7 +6,7 @@
 		"description" = "{{@blog.description}}",
 		"logo" = "{{@blog.logo}}",
 		"cover" = "{{@blog.cover}}",
-		"navigation" = "{{@blog.navigation}}",
+		{{!-- "navigation" = "{{@blog.navigation}}", --}}
 
 		"posts":
 		[
@@ -16,7 +16,7 @@
 				"title": "{{title}}",
 				"slug": "{{slug}}",
 				{{!-- "excerpt": "{{excerpt}}", --}}	{{! not needed. left here for completeness}}
-				"content": "{{content}}",	{{! depending on post loading approach, not required here}}
+				{{!-- "content": "{{content}}",	--}}	{{! depending on post loading approach, not required here}}
 				"url": "{{url}}",
 				"image": "{{image}}",
 				"featured": "{{featured}}",
@@ -37,26 +37,17 @@
 				},
 				"tags":
 				[
-					{{#foreach tags}}
-						"{{tag.name}}"{{#unless @last}},{{/unless}}	{{! maybe more required}}
-					{{/foreach}}
+					{{#if tags}}
+						{{#foreach tags}}
+						{
+							"id": "{{id}}",
+							"name": "{{name}}",
+							"slug": "{{slug}}",
+							"url": "{{url}}"
+						}{{#unless @last}},{{/unless}}	{{! maybe more required}}
+						{{/foreach}}
+					{{/if}}
 				]
-			}{{#unless @last}},{{/unless}}
-			{{/foreach}}
-		],
-
-		"tags":
-		[
-			{{#foreach tags}}	{{! depending on tag loading approach, not entirely required here}}
-			{
-				"id": "{{id}}",
-				"name": "{{name}}",
-				"slug": "{{slug}}",
-				"description": "{{description}}",
-				"image": "{{image}}",
-				"meta_title": "{{meta_title}}",
-				"meta_description": "{{meta_description}}",
-				"url": "{{url}}"
 			}{{#unless @last}},{{/unless}}
 			{{/foreach}}
 		]
