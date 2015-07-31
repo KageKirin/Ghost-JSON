@@ -1,38 +1,19 @@
 {
 	"blog" :
 	{
-		"url" = "{{@blog.url}}",
-		"title" = "{{@blog.title}}",
-		"description" = "{{@blog.description}}",
-		"logo" = "{{@blog.logo}}",
-		"cover" = "{{@blog.cover}}",
-		{{!-- "navigation" = "{{@blog.navigation}}", --}}
+		{{> blog-common}}
 
 		"posts":
 		[
 			{{#foreach posts}}
 			{
-				"id": "{{id}}",
-				"title": "{{title}}",
-				"slug": "{{slug}}",
+				{{> post-details}},
 				{{!-- "excerpt": "{{excerpt}}", --}}	{{! not needed. left here for completeness}}
 				{{!-- "content": "{{content}}",	--}}	{{! depending on post loading approach, not required here}}
-				"url": "{{url}}",
-				"image": "{{image}}",
-				"featured": "{{featured}}",
-				"page": "{{page}}",
-				"meta_title": "{{meta_title}}",
-				"meta_description": "{{meta_description}}",
-				"published_at": "{{published_at}}",
-				"updated_at": "{{updated_at}}",
-				"created_at": "{{created_at}}",
 				"author":
 				{
 					{{#author}}
-						"id": "{{id}}",
-						"name": "{{name}}",
-						"slug": "{{slug}}",
-						"url": "{{url}}"
+						{{> generic-summary}}
 					{{/author}}
 				},
 				"tags":
@@ -40,10 +21,7 @@
 					{{#if tags}}
 						{{#foreach tags}}
 						{
-							"id": "{{id}}",
-							"name": "{{name}}",
-							"slug": "{{slug}}",
-							"url": "{{url}}"
+							{{> generic-summary}}
 						}{{#unless @last}},{{/unless}}	{{! maybe more required}}
 						{{/foreach}}
 					{{/if}}
