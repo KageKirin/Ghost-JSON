@@ -1,25 +1,13 @@
 {
 	"blog" :
 	{
-		"url" = "{{@blog.url}}",
-		"title" = "{{@blog.title}}",
-		"description" = "{{@blog.description}}",
-		"logo" = "{{@blog.logo}}",
-		"cover" = "{{@blog.cover}}",
-		"navigation" = "{{@blog.navigation}}",
+		{{> blog-common}}
 	},
-
-	{{#tag}}
+	
 	"tag":
 	{
-		"id": "{{id}}",
-		"name": "{{name}}",
-		"slug": "{{slug}}",
-		"description": "{{description}}",
-		"image": "{{image}}",
-		"meta_title": "{{meta_title}}",
-		"meta_description": "{{meta_description}}",
-		"url": "{{url}}"
+		{{#tag}}
+		{{> tag-details}}
+		{{/tag}}
 	}
-	{{/tag}}
 }
