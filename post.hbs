@@ -1,0 +1,60 @@
+{
+	"blog" :
+	{
+		"url" = "{{@blog.url}}",
+		"title" = "{{@blog.title}}",
+		"description" = "{{@blog.description}}",
+		"logo" = "{{@blog.logo}}",
+		"cover" = "{{@blog.cover}}",
+		"navigation" = "{{@blog.navigation}}",
+	},
+
+	{{#post}}
+	"post":
+	{
+		"id": "{{id}}",
+		"title": "{{title}}",
+		"slug": "{{slug}}",
+		/*"excerpt": "{{excerpt}}",*/
+		"content": "{{content}}",
+		"url": "{{url}}",
+		"image": "{{image}}",
+		"featured": "{{featured}}",
+		"page": "{{page}}",
+		"meta_title": "{{meta_title}}",
+		"meta_description": "{{meta_description}}",
+		"published_at": "{{published_at}}",
+		"updated_at": "{{updated_at}}",
+		"created_at": "{{created_at}}",
+		"author":
+		{
+			{{#author}}
+				"id": "{{id}}",
+				"name": "{{name}}",
+				"slug": "{{slug}}",
+				"bio": "{{bio}}",
+				"location": "{{location}}",
+				"website": "{{website}}",
+				"image": "{{image}}",
+				"cover": "{{cover}}",
+				"url": "{{url}}"
+			{{/author}}
+		},
+		"tags":
+		[
+			{{#foreach tags}}
+			{
+				"id": "{{id}}",
+				"name": "{{name}}",
+				"slug": "{{slug}}",
+				"description": "{{description}}",
+				"image": "{{image}}",
+				"meta_title": "{{meta_title}}",
+				"meta_description": "{{meta_description}}",
+				"url": "{{url}}"
+			}{{#unless @last}},{{/unless}}
+			{{/foreach}}
+		]
+	}
+	{{/post}}
+}
