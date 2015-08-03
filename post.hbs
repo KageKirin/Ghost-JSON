@@ -12,14 +12,14 @@
 		"author":
 		{
 			{{#author}}
-				{{> generic-summary}},
+				{{> generic-summary}}
 			{{/author}}
 		},
 		"tags":
 		[
 			{{#foreach tags}}
 			{
-				{{> generic-summary}},
+				{{> generic-summary}}
 			}{{#unless @last}},{{/unless}}
 			{{/foreach}}
 		]
