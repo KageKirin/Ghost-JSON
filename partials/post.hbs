@@ -26,5 +26,10 @@
 
 	"author":{{#author}}{{> user}}{{/author}},
 
-	"url":"{{url}}"
+	"url":"{{url}}",
+	"tags":[
+		{{#foreach tags}}
+			{{> tag}}
+		{{/foreach}}
+	]
 }
