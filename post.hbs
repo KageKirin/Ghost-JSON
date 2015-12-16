@@ -1,29 +1,19 @@
+{{#post}}
 {
-	"blog" :
-	{
-		{{> blog-common}}
-	},
+	"posts":[
+		{{> post}}
+	],
 
+	{{!-- below not needed, as already included in post.author --}}
+	"users":[
+	{{#get "users" include="count" limit="all" filter="id:{{author.id}}"}}
+		{{#foreach users}}
+				{{> user}}
+				{{#unless @last}},{{/unless}}
+		{{/foreach}}
+	{{/get}}
+	],
 
-	"post":
-	{
-		{{#post}}
-		{{> post-details}},
-		"author":
-		{
-			{{#author}}
-				{{> generic-summary}}
-			{{/author}}
-		},
-		"tags":
-		[
-			{{#foreach tags}}
-			{
-				{{> generic-summary}}
-			}{{#unless @last}},{{/unless}}
-			{{/foreach}}
-		]
-		{{/post}}
-	}
-
+	"meta":{{> meta}}
 }
+{{/post}}
