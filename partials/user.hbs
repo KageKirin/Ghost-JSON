@@ -1,0 +1,29 @@
+{
+	"id":{{id}},
+	"uuid":"{{uuid}}",
+	"name":"{{encode　name}}",
+	"slug":"{{slug}}",
+
+	"accessibility":{{#if accessibility}}{{accessibility}}{{else}}null{{/if}},
+	"bio":"{{bio}}",
+	"location":{{#if location}}"{{location}}"{{else}}null{{/if}},
+
+	"cover":{{#if cover}}"{{cover absolute="true"}}"{{else}}null{{/if}},
+	"image":{{#if image}}"{{image absolute="true"}}"{{else}}null{{/if}},
+	"language":"{{language}}",
+
+	"status":"{{status}}",
+	"tour":{{#if tour}}"{{tour}}"{{else}}null{{/if}},
+	"last_login":"{{date last_login format="moment.ISO_8601"}}",
+
+	{{!-- no idea what to use those objects for --}}
+	"meta_description":null,	{{!-- "{{meta_description}}" --}}
+	"meta_title":null,				{{!-- "{{meta_title}}" --}}
+
+	"created_at":"{{date created_at format="moment.ISO_8601"}}",
+	"created_by":{{created_by}},
+	"updated_at":"{{date updated_at format="moment.ISO_8601"}}",
+	"updated_by":{{updated_by}},
+
+	"website":"{{website}}"
+}

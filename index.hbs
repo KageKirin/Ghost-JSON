@@ -1,33 +1,30 @@
 {
-	"blog" :
-	{
-		{{> blog-common}}
+	"posts":[
+	{{#get "posts" include="tags,author" limit="all"}}
+		{{#foreach posts}}
+				{{> post}}
+				{{#unless @last}},{{/unless}}
+		{{/foreach}}
+	{{/get}}
+	],
 
-		"posts":
-		[
-			{{#foreach posts}}
-			{
-				{{> post-summary}},
-				{{!-- "excerpt": "{{excerpt}}", --}}	{{! not needed. left here for completeness}}
-				{{!-- "content": "{{content}}",	--}}	{{! depending on post loading approach, not required here}}
-				"author":
-				{
-					{{#author}}
-						{{> generic-summary}}
-					{{/author}}
-				},
-				"tags":
-				[
-					{{#if tags}}
-						{{#foreach tags}}
-						{
-							{{> generic-summary}}
-						}{{#unless @last}},{{/unless}}	{{! maybe more required}}
-						{{/foreach}}
-					{{/if}}
-				]
-			}{{#unless @last}},{{/unless}}
-			{{/foreach}}
-		]
-	}
+	"tags":[
+	{{#get "tags" include="count" limit="all"}}
+		{{#foreach tags}}
+				{{> tag}}
+				{{#unless @last}},{{/unless}}
+		{{/foreach}}
+	{{/get}}
+	],
+
+	"users":[
+	{{#get "users" include="count" limit="all"}}
+		{{#foreach users}}
+				{{> user}}
+				{{#unless @last}},{{/unless}}
+		{{/foreach}}
+	{{/get}}
+	],
+
+	"meta":{{> meta}}
 }

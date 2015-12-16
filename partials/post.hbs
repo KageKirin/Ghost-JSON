@@ -1,0 +1,30 @@
+{
+	"id":{{id}},
+	"uuid":"{{uuid}}",
+	"title":"{{encode title}}",
+	"slug":"{{slug}}",
+
+	"markdown":"{{encode markdown}}",
+	"html":"{{encode html}}",
+
+	"image":{{#if image}}"{{image absolute="true"}}"{{else}}null{{/if}},
+	"featured":{{featured}},
+	"page":{{page}},
+	"status":"{{status}}",
+	"language":"{{language}}",
+
+	{{!-- no idea what to use those objects for --}}
+	"meta_title":null, 				{{!-- "{{encode meta_title}}" --}}
+	"meta_description":null,	{{!-- "{{encode meta_description}}", --}}
+
+	"created_at":"{{date created_at format="moment.ISO_8601"}}",
+	"created_by":{{created_by}},
+	"updated_at":"{{date updated_at format="moment.ISO_8601"}}",
+	"updated_by":{{updated_by}},
+	"published_at":"{{date published_at format="moment.ISO_8601"}}",
+	"published_by":{{published_by}},
+
+	"author":{{#author}}{{> user}}{{/author}},
+
+	"url":"{{url}}"
+}

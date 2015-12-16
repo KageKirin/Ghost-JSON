@@ -1,0 +1,19 @@
+{
+	"id":{{id}},
+	"uuid":"{{uuid}}",
+	"name":"{{encode name}}",
+	"slug":"{{slug}}",
+	"image":{{#if image}}"{{image absolute="true"}}"{{else}}null{{/if}},
+
+	"hidden":{{hidden}},
+	"parent":{{#if parent}}{{parent}}{{else}}null{{/if}},
+
+	{{!-- no idea what to use those objects for --}}
+	"meta_title":null, 				{{!-- "{{meta_title}}" --}}
+	"meta_description":null,	{{!-- "{{meta_description}}" --}}
+
+	"created_at":"{{date created_at format="moment.ISO_8601"}}",
+	"created_by":{{created_by}},
+	"updated_at":"{{date updated_at format="moment.ISO_8601"}}",
+	"updated_by":{{updated_by}}
+}
