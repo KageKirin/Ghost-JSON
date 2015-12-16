@@ -1,13 +1,18 @@
+{{#tag}}
 {
-	"blog" :
-	{
-		{{> blog-common}}
-	},
+	"posts":[
+	{{#get "posts" include="tags,author" limit="all" filter="tags.id:{{id}}"}}
+		{{#foreach posts}}
+				{{> post}}
+				{{#unless @last}},{{/unless}}
+		{{/foreach}}
+	{{/get}}
+	],
 
-	"tag":
-	{
-		{{#tag}}
-			{{> tag-details}}
-		{{/tag}}
-	}
+	"tags":[
+		{{> tag}}
+	],
+
+	"meta":{{> meta}}
 }
+{{/tag}}
