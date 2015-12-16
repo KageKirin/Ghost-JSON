@@ -1,13 +1,18 @@
+{{#author}}
 {
-	"blog" :
-	{
-		{{> blog-common}}
-	},
+	"posts":[
+	{{#get "posts" include="tags,author" limit="all" filter="author.id:{{id}}"}}
+		{{#foreach posts}}
+				{{> post}}
+				{{#unless @last}},{{/unless}}
+		{{/foreach}}
+	{{/get}}
+	],
 
-	"author":
-	{
-		{{#author}}
-			{{> author-details}}
-		{{/author}}
-	}
+	"users":[
+		{{> user}}
+	],
+
+	"meta":{{> meta}}
 }
+{{/author}}
